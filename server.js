@@ -27,9 +27,9 @@ app.get('/app/roll/', (req, res) => {
 
 
 app.post('/app/roll/', (req, res) => {
-    const sides = req.body.sides ||6;
-    const dice = req.body.dice||2;
-    const rolls = req.body.rolls||1;
+    const sides = 6 || req.body.sides;
+    const dice = 2 || req.body.dice ;
+    const rolls =  1 || req.body.rolls;
     res.send(roll(sides, dice, rolls));
     res.end;
 });
