@@ -34,9 +34,25 @@ app.post('/app/roll/', (req, res) => {
     res.end;
 });
 
-app.get('/app/roll/:sides', (req, res)=> {
+app.get('/app/roll/:sides/', (req, res)=> {
     const sides = req.params.sides;
     res.send(roll(sides, 2, 1))
     res.end
 })
+
+app.get('/app/roll/:sides/:dice/', (req, res)=> {
+    const sides = req.params.sides;
+    const dice = req.params.dice;
+    res.send(roll(sides, dice, 1));
+    res.end
+})
+
+app.get('/app/roll/:sides/:dice/:rolls', (req, res)=> {
+    const sides = req.params.sides;
+    const dice = req.params.dice;
+    const rolls = req.params.rolls
+    res.send(roll(sides, dice, rolls));
+    res.end
+})
+
 
